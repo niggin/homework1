@@ -1,7 +1,7 @@
 #include "stack.h"
 
 template<class T>
-void Stack<T>::push(T s)
+void Stack<T>::push(const T& s)
 	{
 		buf.push_back(s);
 	}
