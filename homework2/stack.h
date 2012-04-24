@@ -6,7 +6,8 @@ class Stack
 {
 	std::vector<T> buf;
 public:
-	virtual void push(T s);
+	//use const T& instead of raw T whenever possible
+	virtual void push(const T& s);
 	virtual T pop();
 	virtual bool isEmpty();
 	virtual ~Stack() {}
