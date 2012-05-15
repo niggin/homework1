@@ -1,21 +1,18 @@
 #include "simple_queue.h"
 
-template<class T>
-void SimpleQueue<T>::push(T number)
+void SimpleQueue::push(const int& number)
 {
 	data.push_back(number);
 }
 
-template<class T>
-T SimpleQueue<T>::pop()
+int SimpleQueue::pop()
 {
-	T temp = data[0];
+	int temp = data[0];
 	data.erase(data.begin());
 	return temp;
 }
 
-template<class T>
-bool SimpleQueue<T>::isEmpty() const
+bool SimpleQueue::isEmpty() const
 {
 	return data.empty();
 }

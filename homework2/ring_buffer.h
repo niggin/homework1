@@ -1,18 +1,19 @@
-template<class T>
+#include <vector>
+
 class RingBuffer
 {
 public:
-	void push_back(T x);
-	T pop_front();
+	void push_back(const int& x);
+	int pop_front();
 	bool is_empty() const;
 	bool is_full() const;
-	void resize(int new_size);
+	void resize(const int new_size);
 	int get_size();
 	RingBuffer();
-	RingBuffer(int new_size);
+	RingBuffer(const int new_size);
 	~RingBuffer();
 private:
-	T* data;
+	int* data;
 	int size;
 	int count;
 	int begin_index;

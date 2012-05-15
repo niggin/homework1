@@ -1,13 +1,12 @@
 #include <iostream>
 #include <vector>
 
-template <class T>
 class Stack
 {
-	std::vector<T> buf;
+	std::vector<int> buf;
 public:
-	virtual void push(T s);
-	virtual T pop();
+	virtual void push(const int& s);
+	virtual int pop();
 	virtual bool isEmpty();
 	virtual ~Stack() {}
 };

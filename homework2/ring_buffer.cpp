@@ -1,38 +1,33 @@
 #include "ring_buffer.h"
 
-template<class T>
-RingBuffer<T>::RingBuffer(int new_size)
+RingBuffer::RingBuffer(const int new_size)
 {
 	size = new_size;
-	data = new T[size];
+	data = new int[size];
 	count = 0;
 	begin_index = 0;
 }
 
-template<class T>
-RingBuffer<T>::RingBuffer()
+RingBuffer::RingBuffer()
 {
 	*this = RingBuffer(100);
 }
 
-template<class T>
-RingBuffer<T>::~RingBuffer()
+RingBuffer::~RingBuffer()
 {
 	delete[] data;
 }
 
-template<class T>
-void RingBuffer<T>::push_back(T x)
+void RingBuffer::push_back(const int& x)
 {
 	if(count>=size) resize(size*2);
 	data[(begin_index+count)%size] = x;
 	++count;
 }
 
-template<class T>
-T RingBuffer<T>::pop_front()
+int RingBuffer::pop_front()
 {
-	T temp;
+	int temp;
 	--count;
 	temp = data[begin_index];
 	++begin_index;
@@ -40,16 +35,14 @@ T RingBuffer<T>::pop_front()
 	return temp;
 }
 
-template<class T>
-int RingBuffer<T>::get_size()
+int RingBuffer::get_size()
 {
 	return size;
 }
 
-template<class T>
-void RingBuffer<T>::resize(int new_size)
+void RingBuffer::resize(const int new_size)
 {
-	T* new_data = new T[new_size];
+	int* new_data = new int[new_size];
 	int x;
 	if (new_size<count) x = new_size;
 	else x = count;
@@ -59,15 +52,13 @@ void RingBuffer<T>::resize(int new_size)
 	size = new_size;
 }
 
-template<class T>
-bool RingBuffer<T>::is_full() const
+bool RingBuffer::is_full() const
 {
 	if(count==size) return true;
 	else return false;
 }
 
-template<class T>
-bool RingBuffer<T>::is_empty() const
+bool RingBuffer::is_empty() const
 {
 	if(count==0) return true;
 	else return false;

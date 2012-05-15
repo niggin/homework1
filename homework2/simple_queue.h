@@ -2,14 +2,13 @@
 #include <iostream>
 #include <vector>
 
-template<class T>
-class SimpleQueue: public Queue<T>
+class SimpleQueue: public Queue
 {
-	std::vector<T> data;
+	std::vector<int> data;
 public:
-	SimpleQueue() {};
-	virtual void push(T number);
-    virtual T pop();
+	SimpleQueue() {}
+	virtual void push(const int& number);
+    virtual int pop();
     virtual bool isEmpty() const;
     virtual ~SimpleQueue() {}
 };

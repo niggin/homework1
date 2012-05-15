@@ -1,28 +1,25 @@
 #include "stack.h"
 
-template<class T>
-void Stack<T>::push(T s)
+void Stack::push(const int& s)
 	{
 		buf.push_back(s);
 	}
 
-template<class T>
-T Stack<T>::pop()
+int Stack::pop()
 	{
-		T temp = buf.back();
+		int temp = buf.back();
 		buf.pop_back();
 		return temp;
 	}
 
-template<class T>
-bool Stack<T>::isEmpty()
+bool Stack::isEmpty()
 	{
 		return buf.empty();
 	}
 
 bool isGoodBracketStructure(const std::string& str)
 {
-	Stack<char> a;
+	Stack a;
 	int length=str.size();
 	for (int i=0;i<length;++i)
 	{
